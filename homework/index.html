@@ -7,7 +7,7 @@
         <meta name="Description" content="Enter your description here"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-        <script src="./js/fone.js" defer></script> <!-- add `defer` to script or put at bottom of html -->
+        <script src="js/f1.js" defer></script> <!-- add `defer` to script or put at bottom of html -->
         <title>F1 Racer API</title>
     </head>
     <body>
@@ -24,10 +24,10 @@
                 <form action="" id="racerForm">
                     <div class="row">
                         <div class="col-5">
-                            <input class="form-control" name="season" type="text" placeholder="Season"/>
+                            <input class="form-control" name="year" type="text" placeholder="Year"/>
                         </div>
                         <div class="col-5">
-                            <input class="form-control" name="round" type="text" placeholder="Round"/>
+                            <input class="form-control" name="season" type="text" placeholder="Season"/>
                         </div>
                         <div class="col-2">
                             <input type="submit" class="btn btn-primary d-block w-100"/>
@@ -37,8 +37,20 @@
             </div>
 
             <div class="row" id="standingsTable">
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Driver</th>
+                        <th scope="col">Constructor</th>
+                        <th scope="col">Points</th>
+                        <th scope="col">Wins</th>
+                      </tr>
+                    </thead>
+                    <tbody id="exTable">
                     <!-- Create table and add here via JavaScript -->
-
+                    </tbody>
+                </table>
             </div>
         </div>
 
