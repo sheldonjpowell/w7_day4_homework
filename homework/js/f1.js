@@ -7,22 +7,22 @@ console.log('This is the F1 js file')
     let form = document.getElementById("racerForm");
 
     // Create function to handle Submit Events
-    function handleSubmit(e){
+    async function handleSubmit(e){
         e.preventDefault();
         let year = e.target.year.value 
         let season = e.target.season.value
-        // console.log(year, season)
+        console.log(year, season)
 
         //request to get data
-        // let standing = await getStandingInfo(year, season)
-        let standing = getStandingInfo(year, season)
+        let standing = await getStandingInfo(year, season)
+        // let standing = getStandingInfo(year, season)
         console.log(standing);
 
         // Build element to display
-        // await buiildStandingTable(table1);
-        buiildStandingTable(table1);
+        await buiildStandingTable(standing);
+        // buiildStandingTable(standing);
         e.target.year.value = '';
-        e.target.seson.value = '';
+        e.target.season.value = '';
     }
     //function that accepts year and season and returns a object
     async function getStandingInfo(year, season){
@@ -35,18 +35,19 @@ console.log('This is the F1 js file')
         }
     }
     // function to build card for country
-    async function buiildStandingTable(table1){
+    async function buiildStandingTable(standing){
         // Grabbing what the imput is from the dic
-        var inputList = table1.MRData.standingsTable.StandingsList[0].DriverStandings
-        console.log(inputList)
+        var inputList = (standing.MRData.StandingsTable.StandingsLists[0].DriverStandings);
+        // console.log(inputList)
         const containData = document.getElementById('exTable')
 
 
         for (let i = 0; i< inputList.length; i++){
-            a - inputList[i]
-        }
-            containData.innerHTML += `<tr><td>${a.position}</td><td>${a.Driver.DriverId}</td>td>${a.Constructor[0].ConstructorId}</td>`
+            a = inputList[i]
 
+            containData.innerHTML += `<tr><td>${a.position}</td><td>${a.Driver.driverId}</td><td>${a.Constructors[0].constructorId}</td><td>${a.points}</td><td>${a.wins}</td></tr>`
+            console.log(containData)
+        }
 
 
     }
